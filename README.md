@@ -9,8 +9,11 @@ Run `/softreload`. You need to have the permission node `softreload.softreload`.
 ## How to integrate a plugin
 
 ### Add dependency on SoftReload
+
 //TODO after publishing
+
 ### Add soft dependency in plugin.yml
+
 ```yml
 name: 'YourPlugin'
 ...
@@ -20,14 +23,31 @@ softdepend:
 ```
 
 ### Implement SoftReloadable
+
 ```java
-class YourPlugin extends JavaPlugin implements SoftReloadable {
+class YourPlugin extends JavaPlugin {
   //...
 
   @Override
-  public boolean softReload() {
-    //...          // Reload your config, etc.
-    return true; // return false if reload fails for some reason.
+  public boolean onEnable() {
+    //...
+    registerSoftReload();
+  }
+
+  void registerSoftReload() {
+    try {
+      RegisteredServiceProvider<SoftReloadService> softReloadService = getServer().getServicesManager()
+          .getRegistration(SoftReloadService.class);
+      if (softReloadService != null) {
+        softReloadService.getProvider().register(this, this::softReload);
+      }
+    } catch (NoClassDefFoundError ignored) {
+    }
+  }
+
+  boolean softReload() {
+    //... reload configs, etc.
+    return true; // false if reload failed.
   }
 }
 ```

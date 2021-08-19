@@ -1,3 +1,5 @@
+rootProject.name = "softreload"
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -13,5 +15,7 @@ pluginManagement {
     }
 }
 
-
-rootProject.name = "softreload"
+include(
+    "softreload-core",
+    "softreload-spigot",
+)
