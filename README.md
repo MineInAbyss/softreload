@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.mineinabyss:softreload-core:1.0.0")
+    compileOnly("com.mineinabyss:softreload-core:1.0+")
 }
 ```
 
