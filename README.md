@@ -1,3 +1,6 @@
+[![Java CI with Gradle](https://github.com/MineInAbyss/softreload/actions/workflows/gradle-ci.yml/badge.svg)](https://github.com/MineInAbyss/softreload/actions/workflows/gradle-ci.yml)
+[![Maven](https://badgen.net/maven/v/metadata-url/repo.mineinabyss.com/releases/com/mineinabyss/softreload-core/maven-metadata.xml)](https://repo.mineinabyss.com/releases/com/mineinabyss/softreload-core)
+
 # SoftReload
 
 A simple plugin that soft-reloads other plugins. Typically this is a simple config reload.
@@ -10,7 +13,15 @@ Run `/softreload`. You need to have the permission node `softreload.softreload`.
 
 ### Add dependency on SoftReload
 
-//TODO after publishing
+```kotlin
+repositories {
+    maven("https://repo.mineinabyss.com/releases")
+}
+
+dependencies {
+    compileOnly("com.mineinabyss:softreload-core:1.0.0")
+}
+```
 
 ### Add soft dependency in plugin.yml
 

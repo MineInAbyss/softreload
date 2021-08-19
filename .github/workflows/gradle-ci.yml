@@ -27,7 +27,9 @@ jobs:
         run: gradle build
 
       - name: Upload build
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: build
-          path: build/libs
+          path: |
+            softreload-core/build/libs
+            softreload-spigot/build/libs
