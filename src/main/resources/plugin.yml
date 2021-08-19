@@ -1,0 +1,12 @@
+name: SoftReload
+version: ${plugin_version}
+author: Derongan
+main: com.mineinabyss.softreload.SoftReload
+api-version: 1.17
+load: STARTUP
+
+commands:
+  softreload:
+    description: Reload configuration for all plugins that support softreload.
+    permission: softreload.softreload
+    permission-message: You do not have permission to do this.
